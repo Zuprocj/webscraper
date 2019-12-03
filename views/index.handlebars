@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Read the latest from 'The Verge'</h1>
+        <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Now!</a>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col">
+            {{#each article}}
+            <div class="card-panel">
+                <h4>{{this.title}}</h4>
+                <a class="btn btn-primary btn-lg" href="/readArticle/{{this._id}}" role="button">Read Article</a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
