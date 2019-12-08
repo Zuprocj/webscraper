@@ -1,11 +1,9 @@
-//dependencies
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
-var logger = require("morgan");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const logger = require("morgan");
 
-//initialize Express app
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
 
 app.use(logger("dev"));
 app.use(
@@ -15,7 +13,6 @@ app.use(
 );
 
 app.use(express.static(process.cwd() + "/public"));
-//Require set up handlebars
 var exphbs = require("express-handlebars");
 app.engine(
   "handlebars",
@@ -25,8 +22,6 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-//connecting to MongoDB
-//mongoose.connect("mongodb://localhost/scraped_news");
 const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost/scraper_news";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
@@ -39,7 +34,7 @@ db.once("open", function() {
 
 var routes = require("./controller/controller.js");
 app.use("/", routes);
-//Create localhost port
+
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Listening on PORT " + port + " http://localhost:" +port);
