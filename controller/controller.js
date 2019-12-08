@@ -2,19 +2,6 @@ var express = require("express");
 var router = express.Router();
 var path = require("path");
 
-var reequest = require("request");
-var cheerio = require("cheerio");
-
-router.get("/", function(req,res) {
-    res.redirect("/articles");
-});
-
-router.get("/scrape", function(req,res) {
-    request("http://www.theverge.com", function(error, rspo))
-})var express = require("express");
-var router = express.Router();
-var path = require("path");
-
 var request = require("request");
 var cheerio = require("cheerio");
 
